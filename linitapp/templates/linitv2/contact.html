@@ -121,7 +121,11 @@
                 {% csrf_token %}
                 {{form.as_p}}
                 <p align="center"><button class="btn btn-primary" type="submit">Submit</button></p>
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
               </form>   
+
     
           </div>
         </div>

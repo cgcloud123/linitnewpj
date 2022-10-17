@@ -72,17 +72,32 @@ def careerspage(request):
 
 
 
+# def contactpage(request):
+#     if request.method=='POST':  
+#         form = CustForm(request.POST)
+#         if form.is_valid:
+#             form.save()
+#             form = CustForm()
+#             return redirect('contactpage')
+
+        
+#     else:
+#         form = CustForm()
+#     return render(request, 'linitv2/contact.html',{'form':form})
+
 def contactpage(request):
     if request.method=='POST':  
         form = CustForm(request.POST)
         if form.is_valid:
             form.save()
             form = CustForm()
-            return redirect('contactpage')
-
-        
+            
+            messages.success(request, 'Your form submitted successfully.')
+            return redirect('contactpage')    
     else:
         form = CustForm()
+    
     return render(request, 'linitv2/contact.html',{'form':form})
+
 
 
